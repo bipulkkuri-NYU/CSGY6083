@@ -1,0 +1,27 @@
+
+version: '3.8'
+
+services:
+
+  db:
+    image: mariadb:latest
+    restart: always
+    hostname: mariadb-host
+    environment:
+      MARIADB_ROOT_PASSWORD: Pass@123
+      MYSQL_USER: "user1"
+      MYSQL_PASSWORD: "Pass123!"
+    ports:
+      - '3306:3306'
+    volumes: 
+      - "./mariadb/data:/var/lib/mysql/data/"
+      - "./mariadb/logs:/var/lib/mysql/logs/"
+      - "./createguitar.sql:/docker-entrypoint-initdb.d/createguitar.sql"
+    networks:
+      - db-network
+
+
+networks:
+  db-network:
+      name: db-network	
+      driver: bridge
