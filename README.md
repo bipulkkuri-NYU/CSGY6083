@@ -8,7 +8,7 @@ in Docker image
 IMPORTANT
 ---------
 CHANGE PASSWORDS in docker-compose.yml file
-
+```
  ./start.sh    
 [+] Running 2/1
  ⠿ Container csgy6083-db-1  Removed                                                                                                                                                                   0.4s
@@ -57,3 +57,4 @@ Database changed
 7 rows in set (0.001 sec)
 
 MariaDB [my_guitar_shop]>
+```
