@@ -4,7 +4,7 @@ version: '3.8'
 services:
 
   db:
-    image: mariadb:latest
+    image: mariadb:latest 
     restart: always
     hostname: mariadb-host
     environment:
@@ -20,6 +20,18 @@ services:
     networks:
       - db-network
 
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: pma
+    restart: always
+    links:
+      - db
+    ports:
+      - '8080:80'
+    environment:
+      PMA_ARBITRARY: 1
+    networks:
+      - db-network
 
 networks:
   db-network:
